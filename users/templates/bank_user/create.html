@@ -1,0 +1,9 @@
+{% load i18n %}
+<form class="create-form" name="create-form" method="POST" action="" novalidate>
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button name="cancel" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
+    <button type="submit" name="submit">{% trans "Create" %}</button>
+</form>

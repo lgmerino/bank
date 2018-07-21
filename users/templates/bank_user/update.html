@@ -1,0 +1,9 @@
+{% load i18n %}
+<form class="update-form" name="update-form" method="POST" action="" novalidate>
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button name="cancel" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
+    <button type="submit" name="submit">{% trans "Update" %}</button>
+</form>

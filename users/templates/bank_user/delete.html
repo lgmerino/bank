@@ -1,0 +1,8 @@
+{% load i18n %}
+{% trans "Are you sure you want to delete this user?" %}
+<br/>
+<form class="update-form" name="update-form" method="POST" action="">
+    {% csrf_token %}
+    <button name="cancel" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
+    <button type="submit" name="submit">{% trans "Delete" %}</button>
+</form>
