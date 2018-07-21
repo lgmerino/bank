@@ -16,7 +16,7 @@
                 <table class="table">
                     {{ form.as_table }}
                 </table>
-                <button type="button" name="cancel" class="btn btn-primary btn-md" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
+                <button type="button" name="cancel" class="btn btn-md" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
                 <button type="submit" class="btn btn-primary btn-md pull-right" name="submit">{% trans "Create" %}</button>
             </form>
             </div>

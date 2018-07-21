@@ -11,8 +11,8 @@
         <div class="row">
             <h1>{% trans "User info" %}</h1><br/>
             <div class="center">
-                {{ object.name }}
-                <button type="submit" class="btn btn-primary btn-md pull-right" name="submit">{% trans "Back" %}</button>
+                {% include "bank_user/generic_info.html" %}
+                <button type="button" class="btn btn-primary btn-md pull-right" onclick="javascript:window.location='{% url 'BankUserListView' %}'" name="back">{% trans "Back" %}</button>
             </div>
         </div>
     </div>

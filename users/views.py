@@ -27,7 +27,6 @@ class BankUserListView(LoginRequiredMixin, SingleTableView):
     table_class = tables.BankUserListTable
 
 
-
 class BankUserCreateView(LoginRequiredMixin, CreateView):
     model = BankUser
     form_class = forms.BankUserCreateForm
@@ -53,11 +52,32 @@ class BankUserUpdateView(LoginRequiredMixin, UpdateView):
     form_class = forms.BankUserUpdateForm
     template_name = 'bank_user/update.html'
 
+    def get_success_url(self):
+        # success message
+        message = _('User {0} {1} updated'.format(self.object.first_name,
+                                                  self.object.last_name))
+        messages.success(self.request, message)
+
+        return reverse('BankUserListView')
+
 
 class BankUserDeleteView(LoginRequiredMixin, DeleteView):
     model = BankUser
     form_class = forms.BankUserDeleteForm
     template_name = 'bank_user/delete.html'
+    success_url = reverse_lazy('BankUserListView')
+
+    def delete(self, request, *args, **kwargs):
+        # success message
+        bank_user = self.get_object()
+        message = _('User {0} {1} updated'.format(bank_user.first_name,
+                                                  bank_user.last_name))
+
+        response = super().delete(request, *args, **kwargs)
+
+        messages.success(self.request, message)
+
+        return response
 
 
 class BankUserDetailView(LoginRequiredMixin, DetailView):
