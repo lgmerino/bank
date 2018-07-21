@@ -9,6 +9,7 @@ from django_tables2 import SingleTableView
 from .models import BankUser
 from . import forms
 from . import tables
+from .mixins import OnlyAdministratorAllowedMixin
 
 
 class HomeView(RedirectView):
@@ -47,7 +48,7 @@ class BankUserCreateView(LoginRequiredMixin, CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class BankUserUpdateView(LoginRequiredMixin, UpdateView):
+class BankUserUpdateView(OnlyAdministratorAllowedMixin, UpdateView):
     model = BankUser
     form_class = forms.BankUserUpdateForm
     template_name = 'bank_user/update.html'
@@ -61,7 +62,7 @@ class BankUserUpdateView(LoginRequiredMixin, UpdateView):
         return reverse('BankUserListView')
 
 
-class BankUserDeleteView(LoginRequiredMixin, DeleteView):
+class BankUserDeleteView(OnlyAdministratorAllowedMixin, DeleteView):
     model = BankUser
     form_class = forms.BankUserDeleteForm
     template_name = 'bank_user/delete.html'

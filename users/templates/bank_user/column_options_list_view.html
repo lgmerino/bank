@@ -1,3 +1,5 @@
 {% load i18n %}
+{% if user == record.administrator %}
 <button type="button" name="update" class="btn btn-sm" onclick="javascript:window.location='{% url 'BankUserUpdateView' record.id %}'">{% trans "Update" %}</button>
 <button type="button" name="delete" class="btn btn-sm" onclick="javascript:window.location='{% url 'BankUserDeleteView' record.id %}'">{% trans "Delete" %}</button>
+{% endif %}
