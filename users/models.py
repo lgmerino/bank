@@ -10,7 +10,7 @@ class BankUser(models.Model):
     """
     first_name = models.CharField(max_length=30, blank=False, verbose_name=_('First name'))
     last_name = models.CharField(max_length=30, blank=False, verbose_name=_('Last name'))
-    iban = models.CharField(max_length=34, blank=False, verbose_name=_('IBAN'))
+    iban = models.CharField(max_length=34, blank=False, verbose_name=_('IBAN'), unique=True)
     administrator = models.ForeignKey(User, null=False, blank=False, on_delete=models.PROTECT)
 
     class Meta:
