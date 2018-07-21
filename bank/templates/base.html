@@ -12,6 +12,9 @@
         <div class="row">
             <p class="pull-right">{% trans "Hello" %} {{ user.first_name }}</p>
         </div>
+        <div class="row">
+            {% include "messages.html" %}
+        </div>
     </div>
 </section>
 {% block content %}{% endblock %}
