@@ -4,9 +4,11 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 from braces.views import LoginRequiredMixin
+from django_tables2 import SingleTableView
 
 from .models import BankUser
 from . import forms
+from . import tables
 
 
 class HomeView(RedirectView):
@@ -19,8 +21,11 @@ class HomeView(RedirectView):
         return super().get_redirect_url(*args, **kwargs)
 
 
-class BankUserListView(LoginRequiredMixin, TemplateView):
+class BankUserListView(LoginRequiredMixin, SingleTableView):
     template_name = 'bank_user/list.html'
+    model = BankUser
+    table_class = tables.BankUserListTable
+
 
 
 class BankUserCreateView(LoginRequiredMixin, CreateView):
