@@ -114,6 +114,7 @@ INSTALLED_APPS = (
     'django_tables2',
     'users',
     'social_django',
+    'localflavor',
 )
 
 # A sample logging configuration. The only tangible logging

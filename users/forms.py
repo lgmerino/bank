@@ -1,9 +1,13 @@
 from django import forms
+from django.utils.translation import ugettext_lazy as _
+from localflavor.generic.forms import IBANFormField
 
 from .models import BankUser
 
 
 class BankUserUpdateForm(forms.ModelForm):
+    iban = IBANFormField(label=_('IBAN'))
+
     class Meta:
         model = BankUser
         fields = ('first_name',
