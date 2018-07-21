@@ -1,0 +1,19 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <p class="pull-right">{% trans "Hello" %} {{ user.first_name }}</p>
+        </div>
+    </div>
+</section>
+{% block content %}{% endblock %}
+</body>
+</html>

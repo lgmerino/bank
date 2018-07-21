@@ -1,5 +1,19 @@
-{% if user.is_authenticated %}
-         <p class="display-4">Hello, {{ user.username }}</p>
-{% else %}
-         <a class="lead" href="{% url 'login' %}">Log in</a>
-{% endif %}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "List of users" %}
+{% endblock %}
+
+{% block content %}
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <h1>{% trans "List of users" %}</h1><br/>
+            <div class="center">
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

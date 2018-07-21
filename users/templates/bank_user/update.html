@@ -1,9 +1,26 @@
+{% extends "base.html" %}
 {% load i18n %}
-<form class="update-form" name="update-form" method="POST" action="" novalidate>
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <button name="cancel" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
-    <button type="submit" name="submit">{% trans "Update" %}</button>
-</form>
+
+{% block title %}
+    {% trans "Update user" %}
+{% endblock %}
+
+{% block content %}
+<section id="form">
+    <div class="container">
+        <div class="row">
+            <h1>{% trans "Update user" %}</h1><br/>
+            <div class="center">
+            <form class="create-form" name="create-form" method="POST" action="" novalidate>
+                {% csrf_token %}
+                <table class="table">
+                    {{ form.as_table }}
+                </table>
+                <button name="cancel" class="btn btn-primary btn-md" onclick="javascript:window.location='{% url 'BankUserListView' %}'">{% trans "Cancel" %}</button>
+                <button type="submit" class="btn btn-primary btn-md pull-right" name="submit">{% trans "Create" %}</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

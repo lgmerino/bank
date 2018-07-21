@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "User info" %}
+{% endblock %}
+
+{% block content %}
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <h1>{% trans "User info" %}</h1><br/>
+            <div class="center">
+                {{ object.name }}
+                <button type="submit" class="btn btn-primary btn-md pull-right" name="submit">{% trans "Back" %}</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
