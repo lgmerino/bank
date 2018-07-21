@@ -2,6 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^$',
+        views.HomeView.as_view(),
+        name='HomeView'),
     url(r'^bank_user/$',
         views.BankUserListView.as_view(),
         name='BankUserListView'),
