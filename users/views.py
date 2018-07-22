@@ -71,7 +71,7 @@ class BankUserDeleteView(OnlyAdministratorAllowedMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         # success message
         bank_user = self.get_object()
-        message = _('User {0} {1} updated'.format(bank_user.first_name,
+        message = _('User {0} {1} deleted'.format(bank_user.first_name,
                                                   bank_user.last_name))
 
         response = super().delete(request, *args, **kwargs)
