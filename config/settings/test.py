@@ -1,8 +1,6 @@
 from .base import *
 
-DEBUG = True
-
-INTERNAL_IPS = ('127.0.0.1',)
+DEBUG = False
 
 DATABASES = {
     'default': {
@@ -16,6 +14,4 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS += ('debug_toolbar',)
-
-MIDDLEWARE = ('debug_toolbar.middleware.DebugToolbarMiddleware',) + MIDDLEWARE
+AUTHENTICATION_BACKENDS += ('django.contrib.auth.backends.ModelBackend',)

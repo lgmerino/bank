@@ -1,4 +1,4 @@
-from django.views.generic import DeleteView, CreateView, UpdateView, DetailView, TemplateView, RedirectView
+from django.views.generic import DeleteView, CreateView, UpdateView, DetailView, RedirectView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib import messages
