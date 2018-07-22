@@ -1,6 +1,7 @@
 Django==1.11.14
 pytz==2018.5
-psycopg2==2.7.5
+#psycopg2==2.7.5
+psycopg2-binary
 social-auth-app-django==2.1.0
 django-braces==1.13.0
 django-tables2==1.21.2
